@@ -1,0 +1,20 @@
+{% extends "applikaatio/base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Liity tänään</legend>
+                {{ form.as_p }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Kirjaudu</button>
+            </div>
+        </form>
+        <div class="border-top">
+            <small class="text-muted">
+                Onko sinulla jo tunnus? <a class="ml-2" href="#">Liity tästä</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}

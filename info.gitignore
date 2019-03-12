@@ -11,3 +11,4 @@ jos harkka urls.py olisi merkkitty applikaation url /applikaatio.
 Models.py kerrotaan vain mitä halutaan tallentaa databaseen
 Templates luodaan html ulkonäkö
 Views.py luodaan toiminnallisuus html sivuille. 
+migrate kun halutaan siirtää dataa tietokantaan.

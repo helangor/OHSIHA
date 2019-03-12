@@ -2,5 +2,6 @@ from django.urls import path
 from . import views 
 
 urlpatterns =[
-    path('', views.HomePageView, name='kotisivu')
+    path('', views.home, name='applikaatio-home'),
+    path('about/', views.about, name='applikaatio-about'),
 ]

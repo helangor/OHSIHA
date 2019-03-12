@@ -1,0 +1,11 @@
+Env käynnistys
+Env kansioon ja powershellillä .\Scripts\activate
+
+Djangon käynnistys
+Projekti -kansioon ja py manage.py runserver
+
+Djangon pysäytys
+CTRL+c
+
+Env pysäytys
+deactivate

@@ -5,16 +5,16 @@
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Liity tänään</legend>
+                <legend class="border-bottom mb-4">Kirjaudu sisään</legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Kirjaudu</button>
+                <button class="btn btn-outline-info" type="submit">Kirjaudu sisään</button>
             </div>
         </form>
         <div class="border-top">
             <small class="text-muted">
-                Onko sinulla jo tunnus? <a class="ml-2" href="{% url 'login' %}">Liity tästä</a>
+                Tarvitsetko tunnuksen? <a class="ml-2" href="{% url 'register' %}">Liity tästä</a>
             </small>
         </div>
     </div>

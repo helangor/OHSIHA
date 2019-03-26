@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'applikaatio.apps.ApplikaatioConfig',
     'users.apps.UsersConfig',
+    'electricity.apps.ElectricityConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',

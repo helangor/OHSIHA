@@ -1,5 +1,71 @@
 {% extends "applikaatio/base.html" %}
 {% block content %}
-  <h2>Sähköntuotto Suomessa </h2>
-  <p>Ydinvoiman tuotantoteho tällä hetkellä: <strong>{{ Value }}</strong> megawattia.</p> 
+  <div id="container"></div>
+  <script src="https://code.highcharts.com/highcharts.src.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script>
+    Highcharts.chart('container', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Sähköntuotanto Suomessa'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'Ydinvoima',
+                y: {{ ydinvoima }}
+            }, {
+                name: 'Tuulivoima',
+                y: {{ tuulivoima }}
+            }, {
+                name: 'Vesivoima',
+                y: {{ vesivoima }}
+            }, {
+                name: 'Teollisuuden yhteistuotanto',
+                y: {{ yhteistuotanto }}
+            }, {
+                name: 'Kaukolämpö',
+                y: {{ kauko}}
+            }, {
+                name: 'Muut',
+                y: {{ muu }}
+            }]
+        }]
+    });
+  </script>
 {% endblock %}
+<!--
+  <h2>Sähköntuotto Suomessa </h2>
+  <p>Sähkön tuotanto: <strong>{{ tuotanto }} </strong> </p> 
+  <p>Sähkön kulutus: <strong>{{ kulutus }} </strong> </p> 
+  <p>Sähkön nettotuonti/-vienti: <strong>{{ tuontivienti }} </strong> </p> 
+  <p>Ydinvoiman tuotanto Suomessa: <strong>{{ ydinvoima }} </strong> </p> 
+  <p>Tuulivoiman tuotanto Suomessa: <strong>{{ tuulivoima }} </strong> </p> 
+  <p>Vesivoiman tuotanto Suomessa: <strong>{{ vesivoima }} </strong> </p> 
+  <p>Teollisuuden yhteistuotanto Suomessa: <strong>{{ yhteistuotanto }} </strong> </p> 
+  <p>Kaukolämmön tuotanto Suomessa: <strong>{{ kauko }} </strong> </p> 
+  <p>Muu tuotanto Suomessa: <strong>{{ muu }} </strong> </p> 
+-->
